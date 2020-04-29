@@ -18,6 +18,9 @@ public class RegisterArg extends InsnArg implements Named {
 	private SSAVar sVar;
 
 	public RegisterArg(int rn, ArgType type) {
+		if (type.isObject() && type.getObject().startsWith("[L")) {
+			System.out.println();
+		}
 		this.type = type; // initial type, not changing, can be unknown
 		this.regNum = rn;
 	}
